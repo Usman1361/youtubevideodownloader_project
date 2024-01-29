@@ -4,11 +4,11 @@ import LanguageIcon from "@mui/icons-material/Language";
 const Footer = () => {
   const ownerData = [
     {
-      name: "Muhammad Usman",
+      name: "usman-portfolio-app.netlify.app/",
       link: "https://usman-portfolio-app.netlify.app/",
     },
     {
-      name: "Muhammad Haroon",
+      name: "codexharoon.com",
       link: "https://codexharoon.com/",
     },
   ];
@@ -16,8 +16,8 @@ const Footer = () => {
     <>
       <Box sx={{ backgroundColor: "#242B2E", color: "white" }}>
         <Container>
-          <Grid container>
-            <Grid item xs={12} md={4}>
+          <Grid container pb={10}>
+            <Grid item xs={12} md={4} sx={{ textAlign: "center" }}>
               <Typography pt={4} pb={3} variant="h5" fontFamily="Poppins">
                 Alldownload4u
               </Typography>
@@ -27,31 +27,63 @@ const Footer = () => {
               </Typography>
             </Grid>
             <Grid item pl={3} xs={12} md={4}>
-              <Typography pt={4} pb={3} variant="h5" fontFamily="Poppins">
+              <Typography
+                pt={4}
+                pb={1}
+                variant="h5"
+                fontFamily="Poppins"
+                sx={{ textAlign: "center" }}
+              >
                 Contact Us
               </Typography>
-              <Box sx={{ display: "flex" }}>
+              <Box>
                 {ownerData.map((item) => (
-                  <>
+                  <Box sx={{ display: "flex" }}>
                     <Button
                       variant="outlined"
                       fontFamily="Poppins"
                       href={item.link}
-                      sx={{ marginRight: "10px" }}
+                      sx={{ marginRight: "10px", border: "none" }}
                     >
                       <LanguageIcon />
                     </Button>
-                  </>
+                    <Button
+                      variant="text"
+                      fontFamily="Poppins"
+                      sx={{ color: "white" }}
+                      href={item.link}
+                    >
+                      {item.name}
+                    </Button>
+                  </Box>
                 ))}
               </Box>
-
+            </Grid>
+            <Grid item xs={12} md={4} sx={{ textAlign: "center" }}>
+              <Typography pt={4} pb={3} variant="h5" fontFamily="Poppins">
+                About Us
+              </Typography>
               <Typography variant="body2" fontFamily="Poppins">
-                Email:
+                We are a team of 2 people. We are working on this project to
+                provide you the best service for free.
               </Typography>
             </Grid>
-            <Grid item xs={12} md={4}></Grid>
           </Grid>
         </Container>
+        <Box>
+          <Typography
+            sx={{
+              textAlign: "center",
+              backgroundColor: "#9fa8da",
+              color: "white",
+              padding: "10px 0px",
+            }}
+            variant="body2"
+            fontFamily="Poppins"
+          >
+            © 2024 All Rights Reserved. Alldownload4u
+          </Typography>
+        </Box>
       </Box>
     </>
   );
