@@ -34,8 +34,8 @@ const Guides = () => {
             </Typography>
           </Grid>
 
-          {data.map((item) => (
-            <Grid item xs={12} md={4}>
+          {data.map((item, index) => (
+            <Grid item xs={12} md={4} key={`Download-Guid-${index}`}>
               <Box
                 key={item.id}
                 sx={{
