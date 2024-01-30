@@ -14,9 +14,16 @@ import axios from "axios";
 
 const GetLink = () => {
   const [linkText, setLinkText] = useState("");
+  const [linkData, setLinkData] = useState({});
   const handleDownload = async () => {
     if (linkText === "") {
       alert("Please enter a link");
+      return;
+    }
+
+    // second check to see if the link is a valid youtube link
+    if (!linkText.includes("youtube.com")) {
+      alert("Please enter a valid youtube link");
       return;
     }
 
@@ -27,6 +34,7 @@ const GetLink = () => {
       `http://localhost:8888/api/yt/download/${yid}`
     );
     console.log(response.data);
+    setLinkData(response.data);
   };
   return (
     <>
@@ -63,6 +71,58 @@ const GetLink = () => {
                   <DownloadIcon />
                 </Button>
               </Box>
+            </Grid>
+          </Grid>
+
+          {/* // to display any error here  */}
+          <span></span>
+
+          {/* // by using mui displaying the thumbnail title and 3 differents links
+          comping from the backend */}
+          <Grid container style={{ marginTop: "50px" }}>
+            <Grid item xs={12} md={6}>
+              <Box sx={{ display: "flex", justifyContent: "center" }}>
+                <img
+                  src={linkData?.thumb}
+                  alt="thumbnail"
+                  style={{ width: "100%", height: "100%" }}
+                />
+              </Box>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <Box sx={{ display: "flex", justifyContent: "center" }}>
+                <Typography
+                  variant="h4"
+                  sx={{ textAlign: "center", fontFamily: "Poppins" }}
+                >
+                  {linkData?.title}
+                </Typography>
+              </Box>
+              {/* // as in linkData we have a array of links we are using map to
+              display three links // and using the a tag to download the video */}
+              {linkData?.links?.map((item, index) => (
+                <Box
+                  key={index}
+                  sx={{ display: "flex", justifyContent: "center" }}
+                >
+                  <a
+                    href={item.link}
+                    download
+                    style={{
+                      textDecoration: "none",
+                      color: "#fff",
+                      backgroundColor: "#ff5252",
+                      padding: "10px 20px",
+                      borderRadius: "8px",
+                      margin: "10px 0px",
+                      cursor: "pointer",
+                    }}
+                    target="_blank"
+                  >
+                    {item.quality}
+                  </a>
+                </Box>
+              ))}
             </Grid>
           </Grid>
         </Container>
