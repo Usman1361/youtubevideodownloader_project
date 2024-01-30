@@ -9,7 +9,7 @@ const Footer = () => {
     },
     {
       name: "codexharoon.com",
-      link: "https://codexharoon.com/",
+      link: "https://codexharoon.com",
     },
   ];
   return (
@@ -43,6 +43,8 @@ const Footer = () => {
                       variant="outlined"
                       fontFamily="Poppins"
                       href={item.link}
+                      target="_blank"
+                      rel="noreferrer"
                       sx={{ marginRight: "10px", border: "none" }}
                     >
                       <LanguageIcon />
@@ -52,6 +54,8 @@ const Footer = () => {
                       fontFamily="Poppins"
                       sx={{ color: "white" }}
                       href={item.link}
+                      target="_blank"
+                      rel="noreferrer"
                     >
                       {item.name}
                     </Button>
@@ -81,7 +85,24 @@ const Footer = () => {
             variant="body2"
             fontFamily="Poppins"
           >
-            © 2024 All Rights Reserved. Alldownload4u
+            © 2024 All Rights Reserved. Alldownload4u . ( Design and Developed
+            by{" "}
+            <a
+              href="https://www.linkedin.com/in/codexharoon/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              CodexHaroon
+            </a>{" "}
+            and{" "}
+            <a
+              href="https://www.linkedin.com/in/muhammad-usman-aa7023230/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Muhammad Usman
+            </a>
+            )
           </Typography>
         </Box>
       </Box>
