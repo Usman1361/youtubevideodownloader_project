@@ -15,7 +15,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-
+import CloseIcon from "@mui/icons-material/Close";
 const drawerWidth = 240;
 const navItems = ["Home", "About", "Contact"];
 
@@ -29,11 +29,11 @@ function Header(props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        Alldownload4u
-      </Typography>
-      <Divider />
       <List>
+        <Typography variant="h6" sx={{ my: 2 }}>
+          Alldownload4u
+        </Typography>
+        <Divider />
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
             <ListItemButton sx={{ textAlign: "center" }}>
@@ -52,7 +52,13 @@ function Header(props) {
     <Box pb={10}>
       <CssBaseline />
       <AppBar component="nav">
-        <Toolbar sx={{ backgroundColor: "#ff5252" }}>
+        <Toolbar
+          sx={{
+            backgroundColor: "#ff5252",
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -62,6 +68,16 @@ function Header(props) {
           >
             <MenuIcon />
           </IconButton>
+          <Box
+            sx={{
+              display: { xs: "block", sm: "none", md: "none" },
+              zIndex: "20000",
+            }}
+          >
+            <Typography variant="h6" sx={{ my: 2 }}>
+              Alldownload4u
+            </Typography>
+          </Box>
           <Typography
             variant="h6"
             component="div"
@@ -79,24 +95,38 @@ function Header(props) {
         </Toolbar>
       </AppBar>
       <nav>
-        <Drawer
-          container={container}
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-          sx={{
-            display: { xs: "block", sm: "none" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-            },
-          }}
-        >
-          {drawer}
-        </Drawer>
+        <Box sx={{ display: { xs: "block", md: "none" } }}>
+          <Drawer
+            container={container}
+            variant="temporary"
+            anchor="left"
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
+            ModalProps={{
+              keepMounted: true,
+            }}
+            sx={{
+              "& .MuiDrawer-paper": {
+                boxSizing: "border-box",
+                width: drawerWidth,
+                bgcolor: "white",
+              },
+            }}
+          >
+            <Box>
+              <IconButton
+                sx={{
+                  display: "inline",
+                  float: "right",
+                }}
+                onClick={() => setMobileOpen(!mobileOpen)}
+              >
+                <CloseIcon sx={{ color: "#ff5252" }} />
+              </IconButton>
+            </Box>
+            {drawer}
+          </Drawer>
+        </Box>
       </nav>
     </Box>
   );

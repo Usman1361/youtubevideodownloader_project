@@ -11,7 +11,7 @@ import {
 import React, { useState } from "react";
 import DownloadIcon from "@mui/icons-material/Download";
 import axios from "axios";
-
+import CircularProgress from "@mui/material/CircularProgress";
 const GetLink = () => {
   const [linkText, setLinkText] = useState("");
   const [linkData, setLinkData] = useState({});
@@ -46,8 +46,8 @@ const GetLink = () => {
       await axios
         .get(`http://localhost:8888/api/yt/download/${yid}`)
         .then((response) => {
-          setLinkData(response.data);
           setLoading(false);
+          setLinkData(response.data);
         });
     } catch (error) {
       setError(true);
@@ -119,7 +119,7 @@ const GetLink = () => {
                     sx={{
                       textAlign: "center",
                       fontFamily: "Poppins",
-                      marginY: "20px",
+                      marginY: { xs: "20px", md: "0px" },
                     }}
                   >
                     {linkData?.title}
@@ -157,6 +157,16 @@ const GetLink = () => {
           )}
         </Container>
       </Box>
+      {
+        // to display the loading icon
+        loading ? (
+          <Box sx={{ display: "flex", justifyContent: "center" }}>
+            <CircularProgress sx={{ color: "#ff5252" }} />
+          </Box>
+        ) : (
+          ""
+        )
+      }
     </>
   );
 };

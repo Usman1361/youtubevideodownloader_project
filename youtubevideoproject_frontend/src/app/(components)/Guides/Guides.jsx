@@ -5,7 +5,7 @@ const Guides = () => {
   const data = [
     {
       id: 1,
-      title: "Enter your YouTube video Link",
+      title: "Enter your YouTube video Link at the top of your browser.",
       color: "#4caf50",
     },
     {
