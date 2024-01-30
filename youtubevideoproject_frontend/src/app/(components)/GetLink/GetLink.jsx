@@ -17,15 +17,18 @@ const GetLink = () => {
   const [linkData, setLinkData] = useState({});
   const [errorMsg, setErrorMsg] = useState("");
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleDownload = async () => {
     setLinkData({});
     setError(false);
     setErrorMsg("");
+    setLoading(true);
 
     if (linkText === "") {
       setError(true);
       setErrorMsg("Please enter a link!");
+      setLoading(false);
       return;
     }
 
@@ -33,6 +36,7 @@ const GetLink = () => {
     if (!linkText.includes("youtube.com")) {
       setError(true);
       setErrorMsg("Please enter a valid youtube link!");
+      setLoading(false);
       return;
     }
 
@@ -41,9 +45,13 @@ const GetLink = () => {
     try {
       await axios
         .get(`http://localhost:8888/api/yt/download/${yid}`)
-        .then((response) => setLinkData(response.data));
+        .then((response) => {
+          setLinkData(response.data);
+          setLoading(false);
+        });
     } catch (error) {
       setError(true);
+      setLoading(false);
       setErrorMsg("Something Went Wrong!");
     }
   };

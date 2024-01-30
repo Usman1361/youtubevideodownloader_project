@@ -85,9 +85,12 @@ const Footer = () => {
             variant="body2"
             fontFamily="Poppins"
           >
-            © 2024 All Rights Reserved. Alldownload4u . ( Design and Developed
-            by{" "}
+            © 2024. All Rights Reserved! . Alldownload4u . ( Design and
+            Developed by{" "}
             <a
+              style={{
+                color: "white",
+              }}
               href="https://www.linkedin.com/in/codexharoon/"
               target="_blank"
               rel="noreferrer"
@@ -96,13 +99,16 @@ const Footer = () => {
             </a>{" "}
             and{" "}
             <a
+              style={{
+                color: "white",
+              }}
               href="https://www.linkedin.com/in/muhammad-usman-aa7023230/"
               target="_blank"
               rel="noreferrer"
             >
               Muhammad Usman
             </a>
-            )
+            {""} )
           </Typography>
         </Box>
       </Box>
