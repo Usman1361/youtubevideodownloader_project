@@ -103,7 +103,12 @@ const GetLink = () => {
           {/* // by using mui displaying the thumbnail title and 3 differents links
           comping from the backend */}
           {linkData ? (
-            <Grid container style={{ marginTop: "50px" }}>
+            <Grid
+              container
+              style={{
+                marginTop: "50px",
+              }}
+            >
               <Grid item xs={12} md={6}>
                 <Box sx={{ display: "flex", justifyContent: "center" }}>
                   <img

@@ -49,7 +49,7 @@ const Guides = () => {
                 <Box
                   sx={{
                     borderRadius: "50%",
-                    padding: "20px 30px",
+                    padding: item.id == 1 ? "20px 35px" : "20px 30px",
                     backgroundColor: item.color,
                   }}
                 >
