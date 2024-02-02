@@ -16,6 +16,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import CloseIcon from "@mui/icons-material/Close";
+import Link from "next/link";
 const drawerWidth = 240;
 const navItems = ["Home", "About", "Contact"];
 
@@ -34,10 +35,36 @@ function Header(props) {
           Alldownload4u
         </Typography>
         <Divider />
-        {navItems.map((item) => (
+        {navItems.map((item, i) => (
           <ListItem key={item} disablePadding>
             <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
+              {i === 0 && (
+                <Link
+                  href="/"
+                  style={{
+                    textDecoration: "none",
+                    color: "black",
+                  }}
+                >
+                  <ListItemText primary={item} />
+                </Link>
+              )}
+              {i === 1 && (
+                <Link
+                  href="/About"
+                  style={{ textDecoration: "none", color: "black" }}
+                >
+                  <ListItemText primary={item} />
+                </Link>
+              )}
+              {i === 2 && (
+                <Link
+                  href="/Contact"
+                  style={{ textDecoration: "none", color: "black" }}
+                >
+                  <ListItemText primary={item} />
+                </Link>
+              )}
             </ListItemButton>
           </ListItem>
         ))}
@@ -86,9 +113,32 @@ function Header(props) {
             Alldownload4u
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            {navItems.map((item) => (
+            {navItems.map((item, i) => (
               <Button key={item} sx={{ color: "#fff" }}>
-                {item}
+                {i === 0 && (
+                  <Link
+                    href="/"
+                    style={{ textDecoration: "none", color: "#FFFFFF" }}
+                  >
+                    {item}
+                  </Link>
+                )}
+                {i === 1 && (
+                  <Link
+                    href="/About"
+                    style={{ textDecoration: "none", color: "#FFFFFF" }}
+                  >
+                    {item}
+                  </Link>
+                )}
+                {i === 2 && (
+                  <Link
+                    href="/Contact"
+                    style={{ textDecoration: "none", color: "#FFFFFF" }}
+                  >
+                    {item}
+                  </Link>
+                )}
               </Button>
             ))}
           </Box>
