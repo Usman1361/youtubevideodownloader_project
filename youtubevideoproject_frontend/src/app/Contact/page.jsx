@@ -1,4 +1,3 @@
-"use client";
 import {
   Box,
   Container,
@@ -11,7 +10,11 @@ import {
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import LanguageIcon from "@mui/icons-material/Language";
-import React, { useState } from "react";
+
+export const metadata = {
+  title: "AllDownload4u",
+  description: "Download Youtube Videos in all formats. Conatct",
+};
 
 const Page = () => {
   const ownerData = [
@@ -32,70 +35,76 @@ const Page = () => {
   ];
 
   return (
-    <Box mb={10} sx={{ marginTop: 4 }}>
-      <Container>
-        <Typography variant="h4" sx={{ fontFamily: "poppins" }}>
-          Contact Us
-        </Typography>
-        <Typography variant="body1" sx={{ marginBottom: 2 }}>
-          If you have any questions or suggestions about our tool, please feel
-          free to contact us. We would love to hear from you!
-        </Typography>
-        <Grid container spacing={2}>
-          {ownerData.map((owner, index) => (
-            <Grid item xs={12} sm={6} key={index}>
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  border: "2px solid transparent",
-
-                  boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
-                  transition: "transform 0.3s ease-in-out",
-                  cursor: "pointer",
-                  "&:hover": {
-                    transform: "scale(1.02)",
-                  },
-                }}
-              >
-                <Avatar
-                  sx={{ mt: 2, width: 120, height: 120, mb: 1 }}
-                  src={owner.image}
-                  alt={owner.name}
-                />
-                <Typography variant="h6">{owner.name}</Typography>
+    <main>
+      <Box mb={10} sx={{ marginTop: 4 }}>
+        <Container>
+          <Typography variant="h4" sx={{ fontFamily: "poppins" }}>
+            Contact Us
+          </Typography>
+          <Typography variant="body1" sx={{ marginBottom: 2 }}>
+            If you have any questions or suggestions about our tool, please feel
+            free to contact us. We would love to hear from you!
+          </Typography>
+          <Grid container spacing={2}>
+            {ownerData.map((owner, index) => (
+              <Grid item xs={12} sm={6} key={index + owner}>
                 <Box
                   sx={{
                     display: "flex",
-                    justifyContent: "center",
-                    marginTop: 1,
+                    flexDirection: "column",
+                    alignItems: "center",
+                    border: "2px solid transparent",
+
+                    boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
+                    transition: "transform 0.3s ease-in-out",
+                    cursor: "pointer",
+                    "&:hover": {
+                      transform: "scale(1.02)",
+                    },
                   }}
                 >
-                  <Button color="primary" target="_blank" href={owner.website}>
-                    <LanguageIcon />
-                  </Button>
-                  <IconButton
-                    color="primary"
-                    href={owner.github}
-                    target="_blank"
+                  <Avatar
+                    sx={{ mt: 2, width: 120, height: 120, mb: 1 }}
+                    src={owner.image}
+                    alt={owner.name}
+                  />
+                  <Typography variant="h6">{owner.name}</Typography>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "center",
+                      marginTop: 1,
+                    }}
                   >
-                    <GitHubIcon />
-                  </IconButton>
-                  <IconButton
-                    color="primary"
-                    href={owner.linkedin}
-                    target="_blank"
-                  >
-                    <LinkedInIcon />
-                  </IconButton>
+                    <Button
+                      color="primary"
+                      target="_blank"
+                      href={owner.website}
+                    >
+                      <LanguageIcon />
+                    </Button>
+                    <IconButton
+                      color="primary"
+                      href={owner.github}
+                      target="_blank"
+                    >
+                      <GitHubIcon />
+                    </IconButton>
+                    <IconButton
+                      color="primary"
+                      href={owner.linkedin}
+                      target="_blank"
+                    >
+                      <LinkedInIcon />
+                    </IconButton>
+                  </Box>
                 </Box>
-              </Box>
-            </Grid>
-          ))}
-        </Grid>
-      </Container>
-    </Box>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      </Box>
+    </main>
   );
 };
 

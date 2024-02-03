@@ -1,4 +1,3 @@
-"use client";
 import {
   Typography,
   Accordion,
@@ -7,12 +6,16 @@ import {
   Box,
   Container,
 } from "@mui/material";
-import React from "react";
 import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
+
+export const metadata = {
+  title: "AllDownload4u",
+  description: "Download Youtube Videos in all formats. Conatct",
+};
 
 const AboutPage = () => {
   return (
-    <>
+    <main>
       <Box>
         <Container>
           <Typography variant="h4" gutterBottom sx={{ fontFamily: "Poppins" }}>
@@ -153,7 +156,7 @@ const AboutPage = () => {
           </Accordion>
         </Container>
       </Box>
-    </>
+    </main>
   );
 };
 

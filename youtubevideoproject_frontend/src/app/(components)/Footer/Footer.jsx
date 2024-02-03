@@ -13,7 +13,7 @@ const Footer = () => {
     },
   ];
   return (
-    <>
+    <footer>
       <Box sx={{ backgroundColor: "#242B2E", color: "white" }}>
         <Container>
           <Grid container pb={10}>
@@ -37,8 +37,8 @@ const Footer = () => {
                 Contact Us
               </Typography>
               <Box>
-                {ownerData.map((item) => (
-                  <Box sx={{ display: "flex" }}>
+                {ownerData.map((item, index) => (
+                  <Box sx={{ display: "flex" }} key={index}>
                     <Button
                       variant="outlined"
                       fontFamily="Poppins"
@@ -112,7 +112,7 @@ const Footer = () => {
           </Typography>
         </Box>
       </Box>
-    </>
+    </footer>
   );
 };
 

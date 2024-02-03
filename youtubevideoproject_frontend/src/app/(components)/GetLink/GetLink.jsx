@@ -56,7 +56,7 @@ const GetLink = () => {
     }
   };
   return (
-    <>
+    <section>
       <Box>
         <Container>
           <Grid container>
@@ -82,6 +82,7 @@ const GetLink = () => {
                 <Button
                   onClick={handleDownload}
                   variant="contained"
+                  disabled={loading}
                   sx={{
                     borderRadius: "0px 8px 8px 0px",
                     backgroundColor: "#ff5252",
@@ -172,7 +173,7 @@ const GetLink = () => {
           ""
         )
       }
-    </>
+    </section>
   );
 };
 

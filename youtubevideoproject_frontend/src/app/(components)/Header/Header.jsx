@@ -76,109 +76,111 @@ function Header(props) {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box pb={10}>
-      <CssBaseline />
-      <AppBar component="nav">
-        <Toolbar
-          sx={{
-            backgroundColor: "#ff5252",
-            display: "flex",
-            justifyContent: "space-between",
-          }}
-        >
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Box
+    <header>
+      <Box pb={10}>
+        <CssBaseline />
+        <AppBar component="nav">
+          <Toolbar
             sx={{
-              display: { xs: "block", sm: "none", md: "none" },
-              zIndex: "20000",
+              backgroundColor: "#ff5252",
+              display: "flex",
+              justifyContent: "space-between",
             }}
           >
-            <Typography variant="h6" sx={{ my: 2 }}>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              sx={{ mr: 2, display: { sm: "none" } }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Box
+              sx={{
+                display: { xs: "block", sm: "none", md: "none" },
+                zIndex: "20000",
+              }}
+            >
+              <Typography variant="h6" sx={{ my: 2 }}>
+                Alldownload4u
+              </Typography>
+            </Box>
+            <Typography
+              variant="h6"
+              component="div"
+              sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+            >
               Alldownload4u
             </Typography>
-          </Box>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
-          >
-            Alldownload4u
-          </Typography>
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            {navItems.map((item, i) => (
-              <Button key={item} sx={{ color: "#fff" }}>
-                {i === 0 && (
-                  <Link
-                    href="/"
-                    style={{ textDecoration: "none", color: "#FFFFFF" }}
-                  >
-                    {item}
-                  </Link>
-                )}
-                {i === 1 && (
-                  <Link
-                    href="/About"
-                    style={{ textDecoration: "none", color: "#FFFFFF" }}
-                  >
-                    {item}
-                  </Link>
-                )}
-                {i === 2 && (
-                  <Link
-                    href="/Contact"
-                    style={{ textDecoration: "none", color: "#FFFFFF" }}
-                  >
-                    {item}
-                  </Link>
-                )}
-              </Button>
-            ))}
-          </Box>
-        </Toolbar>
-      </AppBar>
-      <nav>
-        <Box sx={{ display: { xs: "block", md: "none" } }}>
-          <Drawer
-            container={container}
-            variant="temporary"
-            anchor="left"
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-            ModalProps={{
-              keepMounted: true,
-            }}
-            sx={{
-              "& .MuiDrawer-paper": {
-                boxSizing: "border-box",
-                width: drawerWidth,
-                bgcolor: "white",
-              },
-            }}
-          >
-            <Box>
-              <IconButton
-                sx={{
-                  display: "inline",
-                  float: "right",
-                }}
-                onClick={() => setMobileOpen(!mobileOpen)}
-              >
-                <CloseIcon sx={{ color: "#ff5252" }} />
-              </IconButton>
+            <Box sx={{ display: { xs: "none", sm: "block" } }}>
+              {navItems.map((item, i) => (
+                <Button key={item} sx={{ color: "#fff" }}>
+                  {i === 0 && (
+                    <Link
+                      href="/"
+                      style={{ textDecoration: "none", color: "#FFFFFF" }}
+                    >
+                      {item}
+                    </Link>
+                  )}
+                  {i === 1 && (
+                    <Link
+                      href="/About"
+                      style={{ textDecoration: "none", color: "#FFFFFF" }}
+                    >
+                      {item}
+                    </Link>
+                  )}
+                  {i === 2 && (
+                    <Link
+                      href="/Contact"
+                      style={{ textDecoration: "none", color: "#FFFFFF" }}
+                    >
+                      {item}
+                    </Link>
+                  )}
+                </Button>
+              ))}
             </Box>
-            {drawer}
-          </Drawer>
-        </Box>
-      </nav>
-    </Box>
+          </Toolbar>
+        </AppBar>
+        <nav>
+          <Box sx={{ display: { xs: "block", md: "none" } }}>
+            <Drawer
+              container={container}
+              variant="temporary"
+              anchor="left"
+              open={mobileOpen}
+              onClose={handleDrawerToggle}
+              ModalProps={{
+                keepMounted: true,
+              }}
+              sx={{
+                "& .MuiDrawer-paper": {
+                  boxSizing: "border-box",
+                  width: drawerWidth,
+                  bgcolor: "white",
+                },
+              }}
+            >
+              <Box>
+                <IconButton
+                  sx={{
+                    display: "inline",
+                    float: "right",
+                  }}
+                  onClick={() => setMobileOpen(!mobileOpen)}
+                >
+                  <CloseIcon sx={{ color: "#ff5252" }} />
+                </IconButton>
+              </Box>
+              {drawer}
+            </Drawer>
+          </Box>
+        </nav>
+      </Box>
+    </header>
   );
 }
 

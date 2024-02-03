@@ -25,47 +25,49 @@ const Guides = () => {
     },
   ];
   return (
-    <Box pt={10}>
-      <Container>
-        <Grid container justifyContent="center" spacing={3}>
-          <Grid item xs={12}>
-            <Typography variant="h3" align="center" fontFamily="Poppins">
-              How to Download
-            </Typography>
-          </Grid>
+    <section>
+      <Box pt={10}>
+        <Container>
+          <Grid container justifyContent="center" spacing={3}>
+            <Grid item xs={12}>
+              <Typography variant="h3" align="center" fontFamily="Poppins">
+                How to Download
+              </Typography>
+            </Grid>
 
-          {data.map((item, index) => (
-            <Grid item xs={12} md={4} key={`Download-Guid-${index}`}>
-              <Box
-                key={item.id}
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  flexDirection: "column",
-                  py: 5,
-                }}
-              >
+            {data.map((item, index) => (
+              <Grid item xs={12} md={4} key={`Download-Guid-${index}`}>
                 <Box
+                  key={item.id}
                   sx={{
-                    borderRadius: "50%",
-                    padding: item.id == 1 ? "20px 35px" : "20px 30px",
-                    backgroundColor: item.color,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexDirection: "column",
+                    py: 5,
                   }}
                 >
-                  <Typography variant="h4" fontFamily="Poppins">
-                    {item.id}
+                  <Box
+                    sx={{
+                      borderRadius: "50%",
+                      padding: item.id == 1 ? "20px 35px" : "20px 30px",
+                      backgroundColor: item.color,
+                    }}
+                  >
+                    <Typography variant="h4" fontFamily="Poppins">
+                      {item.id}
+                    </Typography>
+                  </Box>
+                  <Typography variant="h6" fontFamily="Poppins">
+                    {item.title}
                   </Typography>
                 </Box>
-                <Typography variant="h6" fontFamily="Poppins">
-                  {item.title}
-                </Typography>
-              </Box>
-            </Grid>
-          ))}
-        </Grid>
-      </Container>
-    </Box>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      </Box>
+    </section>
   );
 };
 
