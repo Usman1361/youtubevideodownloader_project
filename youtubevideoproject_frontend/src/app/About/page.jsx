@@ -29,9 +29,9 @@ const AboutPage = () => {
             download your favorite videos in various formats and resolutions.
           </Typography>
           <Typography variant="body1">
-            Our tool respects YouTube's terms of service and does not promote
-            the unauthorized downloading of copyrighted content. It is intended
-            for personal and fair use only.
+            Our tool respects YouTube&apos;s terms of service and does not
+            promote the unauthorized downloading of copyrighted content. It is
+            intended for personal and fair use only.
           </Typography>
           <Typography
             mt={10}
@@ -45,8 +45,8 @@ const AboutPage = () => {
             This tool is provided for informational purposes only. We do not
             endorse the downloading of copyrighted materials without proper
             authorization. Users are responsible for ensuring they comply with
-            all relevant laws and YouTube's terms of service when using this
-            tool.
+            all relevant laws and YouTube&apos;s terms of service when using
+            this tool.
           </Typography>
           <Typography
             mt={10}
@@ -83,10 +83,10 @@ const AboutPage = () => {
             </AccordionSummary>
             <AccordionDetails>
               <Typography variant="body1">
-                Downloading YouTube videos may infringe on YouTube's terms of
-                service and copyright laws. It's essential to check YouTube's
-                terms and conditions and ensure you have the necessary rights to
-                download and use the videos.
+                Downloading YouTube videos may infringe on YouTube&apos;s terms
+                of service and copyright laws. It&apos;s essential to check
+                YouTube&apos;s terms and conditions and ensure you have the
+                necessary rights to download and use the videos.
               </Typography>
             </AccordionDetails>
           </Accordion>
@@ -149,8 +149,8 @@ const AboutPage = () => {
             <AccordionDetails>
               <Typography variant="body1">
                 The quality of the downloaded video depends on the original
-                source's quality and the selected format and resolution during
-                the download process. Our tool allows you to choose from
+                source&apos;s quality and the selected format and resolution
+                during the download process. Our tool allows you to choose from
                 available resolutions to download the best quality possible.
               </Typography>
             </AccordionDetails>
