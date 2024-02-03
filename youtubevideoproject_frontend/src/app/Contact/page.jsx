@@ -13,7 +13,8 @@ import LanguageIcon from "@mui/icons-material/Language";
 
 export const metadata = {
   title: "AllDownload4u",
-  description: "Download Youtube Videos in all formats. Conatct",
+  description:
+    "Download Youtube Videos in all formats. Conatct us if you have any query regarding our alldownload4u site, please let us know.",
 };
 
 const Page = () => {

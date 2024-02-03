@@ -10,7 +10,8 @@ import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
 
 export const metadata = {
   title: "AllDownload4u",
-  description: "Download Youtube Videos in all formats. Conatct",
+  description:
+    "Download Youtube Videos in all formats. Our YouTube Video Downloader tool is designed to help users easily download videos from YouTube for offline viewing. With its user-friendly interface and intuitive design, you can quickly download your favorite videos in various formats and resolutions.Our tool respects YouTube's terms of service and does not promote the unauthorized downloading of copyrighted content. It is intended for personal and fair use only.",
 };
 
 const AboutPage = () => {
