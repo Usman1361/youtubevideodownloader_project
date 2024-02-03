@@ -44,7 +44,7 @@ const GetLink = () => {
 
     try {
       await axios
-        .get(`http://localhost:8888/api/yt/download/${yid}`)
+        .get(`https://alldownload4u.vercel.app/api/yt/download/${yid}`)
         .then((response) => {
           setLoading(false);
           setLinkData(response.data);
