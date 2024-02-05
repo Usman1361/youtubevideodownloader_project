@@ -24,6 +24,7 @@ const GetLink = () => {
     setError(false);
     setErrorMsg("");
     setLoading(true);
+    let yid = "";
 
     if (linkText === "") {
       setError(true);
@@ -31,17 +32,28 @@ const GetLink = () => {
       setLoading(false);
       return;
     }
+    // https://youtu.be/uZGSyzOb7BA?si=2eqT0GlpuAcjo5zE
+    // https://youtu.be/gdgfegf0Scc?si=e_Nc5egw3zMpnmIq
 
     // second check to see if the link is a valid youtube link
-    if (!linkText.includes("youtube.com")) {
+    if (
+      !linkText.includes("youtube.com") &&
+      !linkText.includes("https://youtu.be")
+    ) {
       setError(true);
       setErrorMsg("Please enter a valid youtube link!");
       setLoading(false);
       return;
     }
-
-    const yid = linkText.split("=")[1];
-
+    if (linkText.includes("youtube.com")) {
+      yid = linkText.split("=")[1];
+    }
+    if (linkText.includes("https://youtu.be")) {
+      const yidb = linkText.split("/");
+      const vidId = yidb[yidb.length - 1];
+      yid = vidId.split("?")[0];
+      console.log(yid);
+    }
     try {
       await axios
         .get(`https://alldownload4u.vercel.app/api/yt/download/${yid}`)

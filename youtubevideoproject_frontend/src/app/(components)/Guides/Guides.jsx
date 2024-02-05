@@ -58,7 +58,11 @@ const Guides = () => {
                       {item.id}
                     </Typography>
                   </Box>
-                  <Typography variant="h6" fontFamily="Poppins">
+                  <Typography
+                    variant="h6"
+                    fontFamily="Poppins"
+                    sx={{ textAlign: "center" }}
+                  >
                     {item.title}
                   </Typography>
                 </Box>
