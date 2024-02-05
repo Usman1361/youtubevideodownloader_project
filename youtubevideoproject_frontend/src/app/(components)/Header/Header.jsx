@@ -18,7 +18,20 @@ import Button from "@mui/material/Button";
 import CloseIcon from "@mui/icons-material/Close";
 import Link from "next/link";
 const drawerWidth = 240;
-const navItems = ["Home", "About", "Contact"];
+const navItems = [
+  {
+    text: "Home",
+    link: "/",
+  },
+  {
+    text: "About",
+    link: "/About",
+  },
+  {
+    text: "Contact",
+    link: "/Contact",
+  },
+];
 
 function Header(props) {
   const { window } = props;
@@ -35,8 +48,8 @@ function Header(props) {
           Alldownload4u
         </Typography>
         <Divider />
-        {navItems.map((item, i) => (
-          <ListItem key={item} disablePadding>
+        {navItems.map(({ text, link }, i) => (
+          <ListItem key={text} disablePadding>
             <ListItemButton
               sx={{
                 textAlign: "center",
@@ -44,42 +57,16 @@ function Header(props) {
                 justifyContent: "center",
               }}
             >
-              {i === 0 && (
-                <Link
-                  href="/"
-                  style={{
-                    textDecoration: "none",
-                    color: "black",
-                    width: "100%",
-                  }}
-                >
-                  <ListItemText primary={item} />
-                </Link>
-              )}
-              {i === 1 && (
-                <Link
-                  href="/About"
-                  style={{
-                    textDecoration: "none",
-                    color: "black",
-                    width: "100%",
-                  }}
-                >
-                  <ListItemText primary={item} />
-                </Link>
-              )}
-              {i === 2 && (
-                <Link
-                  href="/Contact"
-                  style={{
-                    textDecoration: "none",
-                    color: "black",
-                    width: "100%",
-                  }}
-                >
-                  <ListItemText primary={item} />
-                </Link>
-              )}
+              <Link
+                href={link}
+                style={{
+                  textDecoration: "none",
+                  color: "black",
+                  width: "100%",
+                }}
+              >
+                <ListItemText primary={text} />
+              </Link>
             </ListItemButton>
           </ListItem>
         ))}
@@ -129,48 +116,19 @@ function Header(props) {
               Alldownload4u
             </Typography>
             <Box sx={{ display: { xs: "none", sm: "block" } }}>
-              {navItems.map((item, i) => (
-                <Button key={item} sx={{ color: "#fff" }}>
-                  {i === 0 && (
-                    <Link
-                      href="/"
-                      style={{
-                        textDecoration: "none",
-                        color: "#FFFFFF",
-                        width: "100%",
-                        height: "100%",
-                      }}
-                    >
-                      {item}
-                    </Link>
-                  )}
-                  {i === 1 && (
-                    <Link
-                      href="/About"
-                      style={{
-                        textDecoration: "none",
-                        color: "#FFFFFF",
-                        width: "100%",
-                        height: "100%",
-                      }}
-                    >
-                      {item}
-                    </Link>
-                  )}
-                  {i === 2 && (
-                    <Link
-                      href="/Contact"
-                      style={{
-                        textDecoration: "none",
-                        color: "#FFFFFF",
-                        width: "100%",
-                        height: "100%",
-                      }}
-                    >
-                      {item}
-                    </Link>
-                  )}
-                </Button>
+              {navItems.map(({ text, link }, i) => (
+                <Link
+                  key={text}
+                  href={link}
+                  style={{
+                    textDecoration: "none",
+                    color: "#FFFFFF",
+                    width: "100%",
+                    height: "100%",
+                  }}
+                >
+                  <Button sx={{ color: "#fff" }}>{text}</Button>
+                </Link>
               ))}
             </Box>
           </Toolbar>
