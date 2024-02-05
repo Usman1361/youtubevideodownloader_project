@@ -37,13 +37,20 @@ function Header(props) {
         <Divider />
         {navItems.map((item, i) => (
           <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
+            <ListItemButton
+              sx={{
+                textAlign: "center",
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
               {i === 0 && (
                 <Link
                   href="/"
                   style={{
                     textDecoration: "none",
                     color: "black",
+                    width: "100%",
                   }}
                 >
                   <ListItemText primary={item} />
@@ -52,7 +59,11 @@ function Header(props) {
               {i === 1 && (
                 <Link
                   href="/About"
-                  style={{ textDecoration: "none", color: "black" }}
+                  style={{
+                    textDecoration: "none",
+                    color: "black",
+                    width: "100%",
+                  }}
                 >
                   <ListItemText primary={item} />
                 </Link>
@@ -60,7 +71,11 @@ function Header(props) {
               {i === 2 && (
                 <Link
                   href="/Contact"
-                  style={{ textDecoration: "none", color: "black" }}
+                  style={{
+                    textDecoration: "none",
+                    color: "black",
+                    width: "100%",
+                  }}
                 >
                   <ListItemText primary={item} />
                 </Link>
@@ -119,7 +134,12 @@ function Header(props) {
                   {i === 0 && (
                     <Link
                       href="/"
-                      style={{ textDecoration: "none", color: "#FFFFFF" }}
+                      style={{
+                        textDecoration: "none",
+                        color: "#FFFFFF",
+                        width: "100%",
+                        height: "100%",
+                      }}
                     >
                       {item}
                     </Link>
@@ -127,7 +147,12 @@ function Header(props) {
                   {i === 1 && (
                     <Link
                       href="/About"
-                      style={{ textDecoration: "none", color: "#FFFFFF" }}
+                      style={{
+                        textDecoration: "none",
+                        color: "#FFFFFF",
+                        width: "100%",
+                        height: "100%",
+                      }}
                     >
                       {item}
                     </Link>
@@ -135,7 +160,12 @@ function Header(props) {
                   {i === 2 && (
                     <Link
                       href="/Contact"
-                      style={{ textDecoration: "none", color: "#FFFFFF" }}
+                      style={{
+                        textDecoration: "none",
+                        color: "#FFFFFF",
+                        width: "100%",
+                        height: "100%",
+                      }}
                     >
                       {item}
                     </Link>
