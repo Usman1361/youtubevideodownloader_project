@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const download = async (req, res, next) => {
+export const info = async (req, res, next) => {
   const yid = req.params.yid;
   if (!yid) {
     return res.status(400).json({ error: "No id was provided" });
@@ -22,34 +22,41 @@ export const download = async (req, res, next) => {
     const title = response.data.title;
     const thumb = response.data.thumb;
 
-    const videoLinks = response.data.link;
-
-    const link17 = videoLinks["17"];
-    const link18 = videoLinks["18"];
-    const link22 = videoLinks["22"];
-
-    const link1 = {
-      link: link17[0],
-      size: link17[2],
-      quality: link17[3],
-    };
-
-    const link2 = {
-      link: link18[0],
-      size: link18[2],
-      quality: link18[3],
-    };
-
-    const link3 = {
-      link: link22[0],
-      size: link22[2],
-      quality: link22[3],
-    };
+    const formats = [
+      {
+        name: "HD Quality",
+        type: "videoandaudio",
+        itag: "247",
+        container: "mp4",
+        quality: "720p",
+      },
+      {
+        name: "Low Quality",
+        type: "videoandaudio",
+        itag: "18",
+        container: "mp4",
+        quality: "360p",
+      },
+      {
+        name: "Only Video (No Audio)",
+        type: "videoonly",
+        itag: "248",
+        container: "webm",
+        quality: "720p",
+      },
+      {
+        name: "Audio",
+        type: "audioonly",
+        itag: "140",
+        container: "mp3",
+        quality: "",
+      },
+    ];
 
     res.json({
       title,
       thumb,
-      links: [link1, link2, link3],
+      formats,
     });
   } catch (error) {
     next(error);

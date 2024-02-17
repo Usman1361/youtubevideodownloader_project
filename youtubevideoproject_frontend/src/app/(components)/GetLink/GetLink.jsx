@@ -19,6 +19,8 @@ const GetLink = () => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  // const quality = ["1080p", "720p", "480p", "360p", "240p", "144p"];
+
   const handleDownload = async () => {
     setLinkData({});
     setError(false);
@@ -56,7 +58,7 @@ const GetLink = () => {
     }
     try {
       await axios
-        .get(`https://alldownload4u.vercel.app/api/yt/download/${yid}`)
+        .get(`http://localhost:8888/api/yt/info/${yid}`)
         .then((response) => {
           setLoading(false);
           setLinkData(response.data);
@@ -67,6 +69,43 @@ const GetLink = () => {
       setErrorMsg("Something Went Wrong!");
     }
   };
+
+  const handleLinks = async (format) => {
+    setError(false);
+    setErrorMsg("");
+    setLoading(true);
+
+    try {
+      await axios({
+        url: "http://localhost:8888/api/yt/links",
+        method: "GET",
+        responseType: "blob", // important
+        params: {
+          url: linkText,
+          type: format.type,
+          itag: format.itag,
+          conatiner: format.container,
+          title: linkData.title,
+          quality: format.quality,
+        },
+      }).then((response) => {
+        setLoading(false);
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", `${linkData.title}.${format.container}`); // or any other extension
+        document.body.appendChild(link);
+        link.click();
+      });
+    } catch (error) {
+      setError(true);
+      setLoading(false);
+      setErrorMsg("Something Went Wrong!");
+    }
+  };
+
+  console.log(linkData);
+
   return (
     <section>
       <Box>
@@ -145,14 +184,13 @@ const GetLink = () => {
                 </Box>
                 {/* // as in linkData we have a array of links we are using map to
               display three links // and using the a tag to download the video */}
-                {linkData?.links?.map((item, index) => (
+                {linkData?.formats?.map((format, index) => (
                   <Box
                     key={index}
                     sx={{ display: "flex", justifyContent: "center" }}
                   >
-                    <a
-                      href={item.link}
-                      download
+                    <button
+                      onClick={() => handleLinks(format)}
                       style={{
                         textDecoration: "none",
                         color: "#fff",
@@ -161,11 +199,11 @@ const GetLink = () => {
                         borderRadius: "8px",
                         margin: "10px 0px",
                         cursor: "pointer",
+                        border: "none",
                       }}
-                      target="_blank"
                     >
-                      {item.quality}
-                    </a>
+                      {format.name}
+                    </button>
                   </Box>
                 ))}
               </Grid>
